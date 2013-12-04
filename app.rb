@@ -1,45 +1,45 @@
 sites = {
-    amazon: "monkey1",
-    facebook: "giraffe2"
+    amazon: 'monkey1',
+    facebook: 'giraffe2'
 }
 
-puts "Choose an action"
+puts 'Choose an action'
 choice = gets.chomp.downcase
 
 case choice
-  when "add"
-    puts "What's the name of the site?"
+  when 'add'
+    puts 'Name of the site?'
     title = gets.chomp.downcase
     if sites[title.to_sym].nil?
-      puts "What's the password?"
-      rating = gets.chomp.downcase
+      puts 'What is the password?'
+      password = gets.chomp.downcase
       sites[title.to_sym] = password
-      puts "Thanks, you're password has been stored."
+      puts 'Thanks, your password has been stored.'
     else
-      puts "That site already has a password stored."
+      puts 'That site already has a password stored.'
     end
-  when "update"
-    puts "What's the name of the site you want to update?"
+  when 'update'
+    puts 'Name of the site you want to update the password for?'
     title = gets.chomp.downcase
     if sites[title.to_sym].nil?
-      puts "That site doesn't have a password stored."
+      puts 'That site does not have a password stored.'
     else
-      puts "What's the new password?"
+      puts 'New password?'
       password = gets.chomp.downcase
       sites[title.to_sym] = password
     end
-  when "display"
+  when 'display'
     sites.each { |title,password| puts "#{title}: #{password}"}
-  when "delete"
-    puts "What's the name of the site you want to delete?"
+  when 'delete'
+    puts 'Name of the site you want to delete?'
     title = gets.chomp.downcase
     if sites[title.to_sym].nil?
-      puts "That site doesn't have a password stored."
+      puts 'No password stored for that site.'
     else
       sites.delete(title)
-      puts "Password deleted"
+      puts 'Password deleted'
     end
   else
-    puts "Error!"
+    puts 'Error!'
 end
 
